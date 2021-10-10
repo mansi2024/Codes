@@ -1,8 +1,33 @@
-# Codes
-<h1 style="color:red">This repository is a public repository only used for Hacktoberfest 2021</h1>
-<p>
-  <ul>
-    <li>Please leave readme.md alone</li>
-    <li>Any program of any language is welcome here</li>
-  </ul>
-  </p>
+
+#include <stdio.h>
+int binomialCoeff(int n, int k);
+void printPascal(int n)
+{
+	for (int line = 0; line < n; line++)
+	{
+		for (int i = 0; i <= line; i++)
+			printf("%d ",
+					binomialCoeff(line, i));
+		printf("\n");
+	}
+}
+int binomialCoeff(int n, int k)
+{
+	int res = 1;
+	if (k > n - k)
+	k = n - k;
+	for (int i = 0; i < k; ++i)
+	{
+		res *= (n - i);
+		res /= (i + 1);
+	}
+	
+	return res;
+}
+int main()
+{
+	int n = 7;
+	printPascal(n);
+	return 0;
+}
+
